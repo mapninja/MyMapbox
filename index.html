@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Display a map</title>
+    <title>The Ugliest Map In the World</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
@@ -15,13 +15,27 @@
 
 <div id='map'></div>
 <script>
+
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwbmluamEiLCJhIjoiaURXaU1wWSJ9.pjKqYZJjmZ3uO2uzfqK45A';
+// Set bounds to Pali
+var bounds = [
+    [-123,37], // Southwest coordinates
+    [-121,38]  // Northeast coordinates
+];
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapninja/cjn6anmfp04zq2tmloxv6lfw8', // stylesheet location
-    center: [-74.50, 40], // starting position [lng, lat]
-    zoom: 4 // starting zoom
+    center: [-122.1439,37.4165], // starting position [lng, lat]
+    zoom: 12, // starting zoom
+    maxBounds: bounds // Sets bounds as max
 });
+
+
+
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
+
 </script>
 
 </body>
